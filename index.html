@@ -1,55 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./style.css" />
-    <title>Portfolio | Yuliia Smirnova</title>
-  </head>
-  <body>
-    <header>
-      <nav>
-        <div class="logo">
-          <h2>Portfolio</h2>
-        </div>
-        <ul>
-          <li>
-            <a href="#home">Home</a>
-          </li>
-          <li>
-            <a href="#my-work">My work</a>
-          </li>
-          <li>
-            <a href="#contact">Contact</a>
-          </li>
-        </ul>
-      </nav>
-    </header>
-    <main>
-      <section class="hero parallax-container">
-        <div class="content">
-          <h1 class="title">Hi, my name is Yuliia.</h1>
-          <h3 class="subtitle">And I am a Fullstack Web Developer</h3>
-        </div>
-      </section>
 
-      <section class="portfolio-projects parallax-container">
-        <div class="container">
-          <div class="project project-1">
-            <div class="project-img"></div>
-            <h2></h2>
-            <p>Project description</p>
-            <a href="#" class="btn btn-round">Läs mer...</a>
-          </article>
-        </div>
-      </section>
-    </main>
-    <footer>
-      <div class="copyright">
-        Copyright
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./style.css" />
+  <link rel="icon" href="https://avatars.githubusercontent.com/u/8162999?v=4" />
+  <link rel="apple-touch-icon" sizes="180x180" href="./images/favicon//apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon//favicon-16x16.png">
+  <title>Portfolio | Yuliia Smirnova</title>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="logo">
+        <h2>Portfolio</h2>
       </div>
-    </footer>
-    <script src="./app.js"></script>
-  </body>
+      <ul>
+        <li>
+          <a href="#home">Home</a>
+        </li>
+        <li>
+          <a href="#my-work">My work</a>
+        </li>
+        <li>
+          <a href="#contact">Contact</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section class="hero parallax-container" id="home">
+      <div class="content">
+        <h1 class="title">Hi, my name is Yuliia.</h1>
+        <h3 class="subtitle">And I am a Fullstack Web Developer</h3>
+      </div>
+    </section>
+
+    <section class="portfolio-projects parallax-container" id="my-work">
+      <div class="content">
+        <!-- <h2 class="title">My work</h2> -->
+        <div class="project project-1">
+          <picture class="project-img"></picture>
+          <h2>Project</h2>
+          <p>Project description</p>
+          <a href="#" class="btn btn-round">Check page...</a>
+        </div>
+
+        <div class="project project-1">
+          <picture class="project-img"></picture>
+          <h2>Project</h2>
+          <p>Project description</p>
+          <a href="#" class="btn btn-round">Check page...</a>
+        </div>
+
+        <div class="project project-1">
+          <picture class="project-img"></picture>
+          <h2>Project</h2>
+          <p>Project description</p>
+          <a href="#" class="btn btn-round">Check page...</a>
+        </div>
+
+        <div class="project project-1">
+          <picture class="project-img"></picture>
+          <h2>Project</h2>
+          <p>Project description</p>
+          <a href="#" class="btn btn-round">Check page...</a>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section class="parallax-container" id="contact">
+      <div class="content">
+        <h1 class="title">Contacts</h2>
+          <div class="social-links">
+            <a href="https://www.linkedin.com/in/smirnovajulia" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/yulsmir/" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="copyright">
+      <span>Copyright</span>
+    </div>
+  </footer>
+  <script src="./app.js"></script>
+  <script src="https://kit.fontawesome.com/b1f77b8f19.js" crossorigin="anonymous"></script>
+</body>
+
 </html>
