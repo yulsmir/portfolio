@@ -12,10 +12,6 @@
   -moz-box-sizing: border-box;
 }
 
-/* :not(svg, img, picture):empty {
-  display: none;
-} */
-
 :root {
   --default-text: 'Roboto', sans-serif;
   --h1: 2rem;
@@ -26,7 +22,6 @@
   --color-black: #000000;
   --border-color: #e3e3e3;
   --color-white: #FFFFFF;
-  --parallax-color: --color: rgb(63 63 63);
   --bg-image: url('https://images.unsplash.com/photo-1604500692613-290a25b0bf9a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1227&q=80');
 }
 
@@ -40,10 +35,9 @@ body {
   font-family: var(--default-text);
 }
 
-.container,
 .content {
   min-height: 100vh;
-  width: 90%;
+  width: 70%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -68,10 +62,9 @@ li {
   margin-left: 0.5rem;
 }
 
-picture,
 img {
   width: 100%;
-  height: auto;
+  height: 100%;
 }
 
 .parallax-container {
@@ -82,7 +75,6 @@ img {
   background-image: var(--bg-image);
   background-position: center;
   background-size: cover;
-  color: var(--parallax-color);
 }
 
 header,
@@ -113,7 +105,7 @@ nav {
   justify-content: space-between;
 }
 
-h1,
+h1, 
 h3 {
   color: var(--color-white);
   font-family: "Poppins", sans-serif;
@@ -131,7 +123,6 @@ h1 {
 .portfolio-projects .content {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-around;
   align-content: center;
   align-items: center;
   gap: 2rem;
@@ -139,25 +130,16 @@ h1 {
 
 .project {
   display: flex;
+  flex: 1;
   flex-direction: column;
-  min-width: 20rem;
-  min-height: 10rem;
+  min-width: 18.75rem;
+  min-height: 20rem;
+  max-width: fit-content;
   align-items: center;
   justify-content: space-around;
-  border-radius: 0.5rem;
+  border-radius: 0 0 0.5rem 0.5rem;
   background-color: var(--color-white);
 }
-
-.project-img {
-  background-image: var(--bg-image);
-}
-
-/* .social-links {
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-  justify-content: space-around;
-} */
 
 .btn {
   background-color: var(--color-black);
@@ -165,29 +147,37 @@ h1 {
   border: 0.0625rem solid var(--border-color);
 }
 
-.btn.btn-square {
+/*--- Hover ---*/
+.btn:hover {
+  cursor: pointer;
   background-color: var(--color-grey);
-  border: 0.0625rem solid var(--border-color);
+
 }
 
-.btn.btn.btn-round {
-  background-color: var(--color-black);
-  transition: 250ms;
-  border-radius: 0.625rem;
-}
-
-.btn.btn-round:hover {
-  border-radius: 0;
+.project:hover {
+  scale: 1.1;
+  cursor: pointer;
 }
 
 i {
-  font-size: 50px;
+  font-size: 4rem;
   color: var(--color-white);
   padding: 0.5rem;
+  opacity: 80%;
 }
 
+i:hover {
+  opacity: 100%;
+}
+
+.project > picture > img{
+  /* background-position: center;
+  background-size: cover; */
+}
 /* ------------------------------------- MEDIUM SIZE SCREENS ------------------------------------- */
-@media (min-width: 640px) {}
+@media (min-width: 640px) {
+
+}
 
 /* ------------------------------------- LARGE SIZE SCREENS ------------------------------------- */
 @media (min-width: 1024px) {}
