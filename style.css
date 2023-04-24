@@ -89,12 +89,12 @@ header,
 footer {
   background-color: var(--color-black);
   color: var(--color-white);
-  padding: 1rem 6%;
 }
 
 footer {
   display: flex;
   justify-content: center;
+  padding: 1rem 6%;
 }
 
 nav {
@@ -132,8 +132,9 @@ h1 {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
-  align-content: space-evenly;
+  align-content: center;
   align-items: center;
+  gap: 2rem;
 }
 
 .project {
@@ -145,7 +146,6 @@ h1 {
   justify-content: space-around;
   border-radius: 0.5rem;
   background-color: var(--color-white);
-  padding: 1rem;
 }
 
 .project-img {
