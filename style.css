@@ -27,6 +27,7 @@
 	--border-color: #e3e3e3;
 	--color-white: #FFFFFF;
 	--parallax-color:  --color: rgb(63 63 63);
+  --bg-image: url('https://images.unsplash.com/photo-1604500692613-290a25b0bf9a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1227&q=80');
 }
 
 /* GENERAL ELEMENTS STYLE */
@@ -78,8 +79,7 @@ img {
 	flex-direction: column;
 	align-items: center;
 	background-attachment: fixed;
-	background-image: url('https://images.unsplash.com/photo-1604413062265-4b5289320975?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MXwzMTE5MDM1Mnx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=1400&q=60');
-
+	background-image: var(--bg-image);
 	background-position: center;
 	background-size: cover;
 	color: var(--parallax-color);
