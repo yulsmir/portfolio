@@ -42,3 +42,36 @@ navLinks.forEach((link) => {
     handleNavClick(link);
   });
 });
+
+// // Get all books
+// fetch('http://my-json-server.typicode.com/yulsmir/project-server/books')
+//   .then((response) => response.json())
+//   .then((data) => {
+//     // Do something with the data, like display it on your page
+//     console.log(data);
+//   })
+//   .catch((error) => {
+//     console.error('Error:', error);
+//   });
+
+// // Create a new book
+// const newBook = {
+//   title: 'New Book Title',
+//   author: 'New Book Author',
+//   image: 'https://example.com/new-book-image.jpg',
+// };
+
+// fetch('http://my-json-server.typicode.com/yulsmir/project-server/books', {
+//   method: 'POST',
+//   headers: {
+//     'Content-Type': 'application/json',
+//   },
+//   body: JSON.stringify(newBook),
+// })
+//   .then((response) => response.json())
+//   .then((data) => {
+//     console.log('Success:', data);
+//   })
+//   .catch((error) => {
+//     console.error('Error:', error);
+//   });
