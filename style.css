@@ -133,12 +133,17 @@ h1 {
   flex: 1;
   flex-direction: column;
   min-width: 18.75rem;
-  min-height: 20rem;
   max-width: fit-content;
+  min-height: 20rem;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   border-radius: 0 0 0.5rem 0.5rem;
   background-color: var(--color-white);
+}
+
+.project-name {
+  justify-self: center;
+  align-self: center;;
 }
 
 .btn {
@@ -160,7 +165,7 @@ h1 {
 }
 
 i {
-  font-size: 4rem;
+  font-size: 2rem;
   color: var(--color-white);
   padding: 0.5rem;
   opacity: 80%;
@@ -170,10 +175,6 @@ i:hover {
   opacity: 100%;
 }
 
-.project > picture > img{
-  /* background-position: center;
-  background-size: cover; */
-}
 /* ------------------------------------- MEDIUM SIZE SCREENS ------------------------------------- */
 @media (min-width: 640px) {
 
