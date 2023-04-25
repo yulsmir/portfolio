@@ -60,7 +60,7 @@ ul {
 }
 
 li {
-  margin-left: 0.5rem;
+  margin-left: .375rem;
 }
 
 img {
@@ -139,6 +139,10 @@ h1 {
   padding: 5rem 0;
 }
 
+#home .content{
+  height: 100vh;
+}
+
 .project {
   display: flex;
   flex: 1;
@@ -191,6 +195,9 @@ i:hover {
 
 /* ------------------------------------- MEDIUM SIZE SCREENS ------------------------------------- */
 @media (min-width: 640px) {
+  .project {
+    flex: 0.3;
+  }
 }
 
 /* ------------------------------------- LARGE SIZE SCREENS ------------------------------------- */
@@ -199,4 +206,7 @@ i:hover {
 
 /* ------------------------------------- EXTRA LARGE SIZE SCREENS ------------------------------------- */
 @media (min-width: 1440px) {
+  .my-work .content {
+    height: 100vh;
+  }
 }
