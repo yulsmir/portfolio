@@ -6,7 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="./style.css" />
-  <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon//favicon-16x16.png">
+  <link rel="icon" href="./images/favicon.ico" />
+
   <title></title>
 </head>
 
@@ -16,7 +17,7 @@
       <div class="log-text">
         <h2><a href="">Portfolio</a></h2>
       </div>
-      <ul>
+      <ul id="menu">
         <li>
           <a href="#home">Home</a>
         </li>
@@ -29,17 +30,17 @@
       </ul>
     </nav>
   </header>
-  
+
   <main>
     <div class="container">
-      <section class="hero parallax-container" id="home">
+      <section class="parallax-container" id="home">
         <div class="content">
           <h1 class="title">Hi, my name is Yuliia.</h1>
           <h3 class="subtitle">And I am a Fullstack Web Developer.</h3>
         </div>
       </section>
-  
-      <section class="portfolio-projects parallax-container" id="my-work">
+
+      <section class="my-work parallax-container hidden" id="my-work">
         <h2 class="title">My work</h2>
         <div class="content">
           <div class="project project-1">
@@ -49,19 +50,19 @@
             </picture>
             <h2>Project</h2>
             <p>Project description</p>
-            <a href="#" class="btn btn-round">Check page</a>
+            <input type="button" class="btn btn-round" value="Check page"/>
           </div>
-  
-          <div class="project project-2">
+
+          <!-- <div class="project project-2">
             <picture>
               <img
                 src="https://images.unsplash.com/photo-1586281380117-5a60ae2050cc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fHByb2plY3R8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"></img>
             </picture>
             <h2>Project</h2>
             <p>Project description</p>
-            <a href="#" class="btn btn-round">Check page</a>
+            <input type="button" class="btn btn-round" value="Check page"/>
           </div>
-  
+
           <div class="project project-3">
             <picture>
               <img
@@ -69,9 +70,9 @@
             </picture>
             <h2>Project</h2>
             <p>Project description</p>
-            <a href="#" class="btn btn-round">Check page</a>
+            <input type="button" class="btn btn-round" value="Check page"/>
           </div>
-  
+
           <div class="project project-4">
             <picture>
               <img
@@ -79,7 +80,7 @@
             </picture>
             <h2>Project</h2>
             <p>Project description</p>
-            <a href="#" class="btn btn-round">Check page</a>
+            <input type="button" class="btn btn-round" value="Check page"/>
           </div>
 
           <div class="project project-5">
@@ -89,12 +90,12 @@
             </picture>
             <h2>Project</h2>
             <p>Project description</p>
-            <a href="#" class="btn btn-round">Check page</a>
-          </div>
+            <input type="button" class="btn btn-round" value="Check page"/>
+          </div> -->
 
         </div>
       </section>
-      <section id="contact" class="parallax-container">
+      <section id="contact" class="parallax-container hidden">
         <div class="content">
           <h2 class="title">Contact</h2>
           <div class="social-links">
@@ -107,15 +108,16 @@
             <a href="mailto:someone@example.com" target="_blank" rel="noopener noreferrer">
               <i class="fa-solid fa-envelope" type="email"></i>
             </a>
-        </div>
+          </div>
         </div>
       </section>
+
     </div>
   </main>
-  
+
   <footer>
     <span>&copy;2023 Yuliia Smirnova</span>
-    
+
   </footer>
   <script src="./app.js"></script>
   <script src="https://kit.fontawesome.com/b1f77b8f19.js" crossorigin="anonymous"></script>
