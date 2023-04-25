@@ -17,24 +17,28 @@ project1.addEventListener('click', displayProject1);
 // Hide/unhide corresponding section
 const navLinks = document.querySelectorAll('#menu a');
 
+function handleNavClick(link) {
+  const sectionId = link.getAttribute('href');
+  const section = document.querySelector(sectionId);
+
+  console.log(section);
+
+  if (section) {
+    const sections = document.querySelectorAll('main section');
+
+    sections.forEach((s) => {
+      if (s !== section) {
+        s.classList.add('hidden');
+      }
+    });
+
+    section.classList.remove('hidden');
+  }
+}
+
 navLinks.forEach((link) => {
   link.addEventListener('click', (event) => {
     event.preventDefault();
-
-    const sectionId = link.getAttribute('href');
-    const section = document.querySelector(sectionId);
-
-    console.log(section);
-
-    if (section) {
-      const sections = document.querySelectorAll('main section');
-
-      sections.forEach((s) => {
-        if (s !== section) {
-          s.classList.add('hidden');
-        }
-      });
-      section.classList.remove('hidden');
-    }
+    handleNavClick(link);
   });
 });
