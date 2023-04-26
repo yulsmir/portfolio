@@ -102,7 +102,6 @@ nav {
   flex-flow: row wrap;
   align-content: space-between;
   align-items: center;
-  justify-content: center;
   justify-content: space-between;
 }
 
@@ -125,11 +124,11 @@ h1 {
   display: none;
 }
 
-.my-work {
+.app {
   padding-top: 8rem;
 }
 
-.my-work .content {
+.app .content {
   height: 100%;
   display: flex;
   flex-flow: row wrap;
@@ -143,24 +142,22 @@ h1 {
   height: 100vh;
 }
 
-.project {
+.book {
   display: flex;
   flex: 1;
   flex-direction: column;
   min-width: 12.5rem;
+  height: 15rem;
+  max-width: 20rem;
   align-items: center;
+  align-content: center;
   justify-content: space-around;
-  border-radius: 0 0 0.5rem 0.5rem;
+  border-radius: 0.5rem 0.5rem;
   background-color: var(--color-white);
 }
 
-.project > * {
+.book > * {
   margin-bottom: 0.75rem;
-}
-
-.project-name {
-  justify-self: center;
-  align-self: center;
 }
 
 .btn {
@@ -177,7 +174,7 @@ h1 {
   background-color: var(--color-grey);
 }
 
-.project:hover {
+.book:hover {
   scale: 1.1;
   cursor: pointer;
 }
@@ -195,7 +192,7 @@ i:hover {
 
 /* ------------------------------------- MEDIUM SIZE SCREENS ------------------------------------- */
 @media (min-width: 640px) {
-  .project {
+  .book {
     flex: 0.3;
   }
 }
@@ -207,7 +204,7 @@ i:hover {
 
 /* ------------------------------------- EXTRA LARGE SIZE SCREENS ------------------------------------- */
 @media (min-width: 1440px) {
-  .my-work .content {
+  .app .content {
     height: 100vh;
   }
 }
