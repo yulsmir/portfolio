@@ -16,8 +16,8 @@
   --default-text: 'Roboto', sans-serif;
   --h1: 2rem;
   --h2: 1.5rem;
-  --h3: 1rem;
-  --p: 1rem;
+  --h3: 0.5rem;
+  --p: 0.75rem;
   --color-grey: #61646e;
   --color-black: #000000;
   --border-color: #e3e3e3;
@@ -120,20 +120,29 @@ h1 {
   font-size: 2.5rem;
 }
 
+p {
+  text-align: center;
+}
+
+.book h3 {
+  color: var(--color-black);
+}
+
 .hidden {
   display: none;
 }
 
-.app {
+#app {
   padding-top: 8rem;
 }
 
-.app .content {
+#app .content {
   height: 100%;
   display: flex;
   flex-flow: row wrap;
-  align-content: center;
+  align-content: flex-start;
   align-items: center;
+  justify-content: center;
   gap: 2rem;
   padding: 5rem 0;
 }
@@ -142,7 +151,7 @@ h1 {
   height: 100vh;
 }
 
-.book {
+.book  {
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -159,6 +168,11 @@ h1 {
 .book > * {
   margin-bottom: 0.75rem;
 }
+
+/* .book {
+  justify-self: center;
+  align-self: center;
+} */
 
 .btn {
   background-color: var(--color-black);
@@ -192,9 +206,9 @@ i:hover {
 
 /* ------------------------------------- MEDIUM SIZE SCREENS ------------------------------------- */
 @media (min-width: 640px) {
-  .book {
+  /* .book  {
     flex: 0.3;
-  }
+  } */
 }
 
 /* ------------------------------------- LARGE SIZE SCREENS ------------------------------------- */

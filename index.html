@@ -1,85 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="icon" href="./images/favicon.ico" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="./style.css" />
-  <link rel="icon" href="./images/favicon.ico" />
+    <title>Portfolio | Yuliia Smirnova</title>
+  </head>
 
-  <title>Portfolio | Yuliia Smirnova </title>
-</head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo-text">
+          <h2><a href="#home">YS</a></h2>
+        </div>
+        <ul id="menu">
+          <li>
+            <a href="#home">Home</a>
+          </li>
+          <li>
+            <a href="#app">App</a>
+          </li>
+          <li>
+            <a href="#contact">Contact</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
 
-<body>
-  <header>
-    <nav>
-      <div class="log-text">
-        <h2><a href="">YS</a></h2>
+    <main>
+      <div class="container">
+        <section class="parallax-container" id="home">
+          <div class="content">
+            <h1 class="title">Hi, I'm Yuliia.</h1>
+            <h3 class="subtitle">And I am a Fullstack Web Developer.</h3>
+          </div>
+        </section>
+
+        <section class="parallax-container hidden" id="app">
+          <h2 class="title">Books list</h2>
+
+          <div class="content book-list">
+            <!-- <input type="button" class="btn btn-round" value="Check page"/> -->
+          </div>
+
+          <!-- <h2>Add a New Book</h2>
+          <form id="add-book-form">
+            <label for="title-input">Title:</label>
+            <input type="text" id="title-input" name="title" required />
+
+            <label for="author-input">Author:</label>
+            <input type="text" id="author-input" name="author" required />
+
+            <label for="language-input">Language:</label>
+            <input type="text" id="language-input" name="language" required />
+
+            <input type="submit" value="Add Book" />
+          </form> -->
+        </section>
+        <section id="contact" class="parallax-container hidden">
+          <div class="content">
+            <h2 class="title">Contact</h2>
+            <div class="social-links">
+              <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-linkedin"></i>
+              </a>
+              <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="mailto:someone@example.com" target="_blank" rel="noopener noreferrer">
+                <i class="fa-solid fa-envelope" type="email"></i>
+              </a>
+            </div>
+          </div>
+        </section>
       </div>
-      <ul id="menu">
-        <li>
-          <a href="#home">Home</a>
-        </li>
-        <li>
-          <a href="#app">App</a>
-        </li>
-        <li>
-          <a href="#contact">Contact</a>
-        </li>
-      </ul>
-    </nav>
-  </header>
+    </main>
 
-  <main>
-    <div class="container">
-      <section class="parallax-container" id="home">
-        <div class="content">
-          <h1 class="title">Hi, I am Yuliia.</h1>
-          <h3 class="subtitle">And I am a Fullstack Web Developer.</h3>
-        </div>
-      </section>
-      <section class="my-work parallax-container hidden" id="app">
-        <h2 class="title">Books App</h2>
-        <div class="content book-list">
-          <div class="">
-            <picture>
-              <img
-                src="https://shorturl.at/ALMWZ"></img>
-            </picture>
-            <h2>Project</h2>
-            <p>book description</p>
-            <input type="button" class="btn btn-round" value="Check page"/>
-          </div>
-
-        </div>
-      </section>
-      <section id="contact" class="parallax-container hidden">
-        <div class="content">
-          <h2 class="title">Contact</h2>
-          <div class="social-links">
-            <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
-              <i class="fa-brands fa-linkedin"></i>
-            </a>
-            <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
-              <i class="fab fa-github"></i>
-            </a>
-            <a href="mailto:someone@example.com" target="_blank" rel="noopener noreferrer">
-              <i class="fa-solid fa-envelope" type="email"></i>
-            </a>
-          </div>
-        </div>
-      </section>
-
-    </div>
-  </main>
-
-  <footer>
-    <span>&copy;2023 Yuliia Smirnova</span>
-
-  </footer>
-  <script src="./app.js"></script>
-  <script src="https://kit.fontawesome.com/b1f77b8f19.js" crossorigin="anonymous"></script>
-</body>
-
+    <footer>
+      <span>&copy;2023 Yuliia Smirnova</span>
+    </footer>
+    <script src="./app.js"></script>
+    <script src="https://kit.fontawesome.com/b1f77b8f19.js" crossorigin="anonymous"></script>
+  </body>
 </html>
