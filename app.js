@@ -1,5 +1,9 @@
 'use strict';
 
+const API_KEY = 'zcuImMdmPyoxPNSDNOMtKGgqgMLgsiOcDDI07ZF6vM8Fhr4yPzPXoXyWYQ8';
+const SPREADSHEET_ID = '1lRgXZU2qt09r5sfQUSZUIR4OP5OkVIi5BOxWtPysfRA';
+const TAB_NAME = 'BookItems';
+
 // Hide/unhide corresponding section
 const navLinks = document.querySelectorAll('#menu a');
 
@@ -7,7 +11,7 @@ const handleNavClick = (link) => {
   const sectionId = link.getAttribute('href');
   const section = document.querySelector(sectionId);
 
-  console.log(section);
+  // console.log(section);
 
   if (section) {
     const sections = document.querySelectorAll('main section');
@@ -30,11 +34,19 @@ navLinks.forEach((link) => {
 });
 
 // Get all books
-fetch('http://my-json-server.typicode.com/yulsmir/test-server/books')
-  .then((response) => response.json())
-  .then((books) => {
+const params = {
+  apiKey: API_KEY,
+  spreadsheetId: SPREADSHEET_ID,
+};
+
+const url = new URL(`https://api.sheetson.com/v2/sheets/${TAB_NAME}`);
+Object.keys(params).forEach((key) => url.searchParams.append(key, encodeURIComponent(params[key])));
+fetch(url)
+  .then((r) => r.json())
+  .then((result) => {
     const booksContainer = document.querySelector('.book-list');
-    books.forEach((book) => {
+    result.results.forEach((book) => {
+      console.log(book);
       // TODO: Move to separate function createBook()
       const bookDiv = document.createElement('div');
       bookDiv.className = 'book';
@@ -93,7 +105,7 @@ const addBook = (e) => {
   const languageInput = document.getElementById('language-input');
   const coverInput = document.getElementById('cover-input');
 
-  fetch('http://my-json-server.typicode.com/yulsmir/test-server/books', {
+  fetch('http://my-json-server.typicode.com/yulsmir/portfolio-server/books', {
     method: 'POST',
     body: JSON.stringify({
       title: titleInput.value,
