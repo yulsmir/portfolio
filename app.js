@@ -3,7 +3,7 @@
 // Hide/unhide corresponding section
 const navLinks = document.querySelectorAll('#menu a');
 
-function handleNavClick(link) {
+const handleNavClick = (link) => {
   const sectionId = link.getAttribute('href');
   const section = document.querySelector(sectionId);
 
@@ -20,7 +20,7 @@ function handleNavClick(link) {
 
     section.classList.remove('hidden');
   }
-}
+};
 
 navLinks.forEach((link) => {
   link.addEventListener('click', (event) => {
@@ -35,6 +35,7 @@ fetch('http://my-json-server.typicode.com/yulsmir/test-server/books')
   .then((books) => {
     const booksContainer = document.querySelector('.book-list');
     books.forEach((book) => {
+      // TODO: Move to separate function createBook()
       const bookDiv = document.createElement('div');
       bookDiv.className = 'book';
 
@@ -110,6 +111,7 @@ const addBook = (e) => {
       console.log(json);
       const booksList = document.querySelector('.book-list');
 
+      // TODO: Fix ans use separate function createBook()
       const newBookDiv = document.createElement('div');
       newBookDiv.className = 'book';
 
