@@ -54,18 +54,31 @@ fetch('http://my-json-server.typicode.com/yulsmir/test-server/books')
       const author = document.createElement('p');
       author.textContent = `Author: ${book.author}`;
 
-      const checkPageBtn = document.createElement('input');
-      checkPageBtn.type = 'button';
-      checkPageBtn.className = 'btn btn-round';
-      checkPageBtn.value = 'Check page';
+      const buttonsDiv = document.createElement('div');
+      buttonsDiv.className = 'buttons';
+
+      const deleteBtn = document.createElement('input');
+      deleteBtn.type = 'button';
+      deleteBtn.className = 'btn btn-delete';
+      deleteBtn.value = 'Delete';
+
+      const editBtn = document.createElement('input');
+      editBtn.type = 'button';
+      editBtn.className = 'btn btn-edit';
+      editBtn.value = 'Edit';
 
       bookDiv.appendChild(coverPicture);
       bookDiv.appendChild(title);
       bookDiv.appendChild(language);
       bookDiv.appendChild(author);
-      bookDiv.appendChild(checkPageBtn);
+
+      bookDiv.appendChild(buttonsDiv);
+
+      buttonsDiv.appendChild(deleteBtn);
+      buttonsDiv.appendChild(editBtn);
 
       booksContainer.appendChild(bookDiv);
+      bookDiv.appendChild(buttonsDiv);
     });
   });
 

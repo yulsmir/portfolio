@@ -34,6 +34,7 @@ body {
   min-width: 20rem;
   font-family: var(--default-text);
   line-height: 1.5;
+  background-color: var(--color-black);
 }
 
 .content {
@@ -206,7 +207,22 @@ input {
   padding: 0.5rem 1rem;
   border: 0.0625rem solid var(--border-color);
   color: var(--color-white);
-  margin-bottom: 2rem;
+  /* margin-bottom: 2rem; */
+  width: 4rem;
+}
+
+/* TODO: For admin users */
+.buttons {
+  /* display: none; */
+  /* display: flex; */
+}
+
+.btn-delete {
+  background-color: lightcoral;
+}
+
+.btn-edit {
+  background-color: lightseagreen;
 }
 
 /*--- Hover ---*/
