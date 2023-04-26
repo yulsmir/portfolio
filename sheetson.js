@@ -2,23 +2,22 @@
 // const SPREADSHEET_ID = '1lRgXZU2qt09r5sfQUSZUIR4OP5OkVIi5BOxWtPysfRA';
 // const TAB_NAME = 'BookItems';
 
-// const fetch = require('isomorphic-fetch');
-// fetch(`https://api.sheetson.com/v2/sheets/${TAB_NAME}`, {
-//   method: 'POST',
-//   headers: {
-//     Authorization: `Bearer ${API_KEY}`,
-//     'X-Spreadsheet-Id': SPREADSHEET_ID,
-//     'Content-Type': 'application/json',
-//   },
-//   body: JSON.stringify({
-//     title: 'Book',
-//     language: 'French',
-//     author: 'John Doe',
-//     cover: 'https://images.unsplash.com/photo-1680234260561-383bb6705468',
-//   }),
-// })
-//   .then((r) => r.json())
-//   .then((result) => console.log(result));
+fetch(`https://api.sheetson.com/v2/sheets/${TAB_NAME}`, {
+  method: 'POST',
+  headers: {
+    Authorization: `Bearer ${API_KEY}`,
+    'X-Spreadsheet-Id': SPREADSHEET_ID,
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    title: 'Book',
+    language: 'French',
+    author: 'John Doe',
+    cover: 'https://images.unsplash.com/photo-1680234260561-383bb6705468',
+  }),
+})
+  .then((r) => r.json())
+  .then((result) => console.log(result));
 
 // DELETE
 // const idToDelete = 11;
