@@ -198,15 +198,6 @@ img {
 #add-book-form div {
   display: grid;
   grid-template-columns: 35% 65%;
-  /* row-gap: 1rem; */
-}
-
-label {
-  justify-self: flex-start;
-}
-
-input {
-  justify-self: flex-end;
 }
 
 .btn {
