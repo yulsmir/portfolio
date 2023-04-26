@@ -208,7 +208,7 @@ input {
   border: 0.0625rem solid var(--border-color);
   color: var(--color-white);
   /* margin-bottom: 2rem; */
-  width: 4rem;
+  width: 5rem;
 }
 
 /* TODO: For admin users */
@@ -218,11 +218,11 @@ input {
 }
 
 .btn-delete {
-  background-color: lightcoral;
+  background-color: #C63539;
 }
 
 .btn-edit {
-  background-color: lightseagreen;
+  background-color: #303C30;
 }
 
 /*--- Hover ---*/
