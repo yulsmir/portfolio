@@ -111,73 +111,73 @@ fetch('http://my-json-server.typicode.com/yulsmir/test-server/books')
 //   });
 // }
 
-// // Function to add a new book to the server and update the book list
-// // function addBook(event) {
-// //   event.preventDefault();
-
-// //   const titleInput = document.getElementById('title-input');
-// //   const authorInput = document.getElementById('author-input');
-// //   const languageInput = document.getElementById('language-input');
-
-// //   const newBook = {
-// //     title: titleInput.value,
-// //     author: authorInput.value,
-// //     language: languageInput.value,
-// //   };
-
-// //   fetch('http://127.0.0.1:3002/books', {
-// //     method: 'POST',
-// //     headers: {
-// //       'Content-Type': 'application/json',
-// //     },
-// //     body: JSON.stringify(newBook),
-// //   })
-// //     .then((response) => response.json())
-// //     .then((books) => {
-// //       displayBooks(books);
-// //       titleInput.value = '';
-// //       authorInput.value = '';
-// //       languageInput.value = '';
-// //     })
-// //     .catch((error) => {
-// //       console.error('Error:', error);
-// //     });
-// // }
-
-// // Attach event listener to the form submit button
-// // addBookForm.addEventListener('submit', addBook);
-
-// const form = document.getElementById('add-book-form');
-
-// const addBook = (e) => {
-//   e.preventDefault();
+// Function to add a new book to the server and update the book list
+// function addBook(event) {
+//   event.preventDefault();
 
 //   const titleInput = document.getElementById('title-input');
 //   const authorInput = document.getElementById('author-input');
 //   const languageInput = document.getElementById('language-input');
 
+//   const newBook = {
+//     title: titleInput.value,
+//     author: authorInput.value,
+//     language: languageInput.value,
+//   };
+
 //   fetch('http://my-json-server.typicode.com/yulsmir/test-server/books', {
 //     method: 'POST',
-//     body: JSON.stringify({
-//       title: titleInput.value,
-//       author: authorInput.value,
-//       language: languageInput.value,
-//     }),
-
 //     headers: {
-//       'Content-type': 'application/json; charset=UTF-8',
-//       'Access-Control-Allow-Origin': '*',
-//       'Access-Control-Allow-Methods': 'OPTIONS, POST, GET',
-//       'Access-Control-Max-Age': '2592000',
+//       'Content-Type': 'application/json',
 //     },
+//     body: JSON.stringify(newBook),
 //   })
 //     .then((response) => response.json())
-//     .then((json) => {
-//       console.log(json);
-//       const booksList = document.querySelector('.book-list');
-
-//       booksList.innerHTML = `Title: ${json.title}, author: ${json.author}, language: ${json.language}`;
+//     .then((books) => {
+//       displayBooks(books);
+//       titleInput.value = '';
+//       authorInput.value = '';
+//       languageInput.value = '';
+//     })
+//     .catch((error) => {
+//       console.error('Error:', error);
 //     });
-// };
+// }
 
-// form.addEventListener('submit', addBook);
+// Attach event listener to the form submit button
+// addBookForm.addEventListener('submit', addBook);
+
+const form = document.getElementById('add-book-form');
+
+const addBook = (e) => {
+  e.preventDefault();
+
+  const titleInput = document.getElementById('title-input');
+  const authorInput = document.getElementById('author-input');
+  const languageInput = document.getElementById('language-input');
+
+  fetch('http://my-json-server.typicode.com/yulsmir/test-server/books', {
+    method: 'POST',
+    body: JSON.stringify({
+      title: titleInput.value,
+      author: authorInput.value,
+      language: languageInput.value,
+    }),
+
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'OPTIONS, POST, GET',
+      'Access-Control-Max-Age': '2592000',
+    },
+  })
+    .then((response) => response.json())
+    .then((json) => {
+      console.log(json);
+      const booksList = document.querySelector('.book-list');
+
+      booksList.innerHTML = `Title: ${json.title}, author: ${json.author}, language: ${json.language}`;
+    });
+};
+
+form.addEventListener('submit', addBook);
