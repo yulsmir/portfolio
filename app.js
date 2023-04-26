@@ -131,18 +131,29 @@ const addBook = (e) => {
       const author = document.createElement('p');
       author.textContent = `Author: ${json.author}`;
 
-      const checkPageBtn = document.createElement('input');
-      checkPageBtn.type = 'button';
-      checkPageBtn.className = 'btn btn-round';
-      checkPageBtn.value = 'Check page';
+      // TODO: Move buttons creation to a separate function createButtons()
+      const buttonsDiv = document.createElement('div');
+      buttonsDiv.className = 'buttons';
+
+      const deleteBtn = document.createElement('input');
+      deleteBtn.type = 'button';
+      deleteBtn.className = 'btn btn-delete';
+      deleteBtn.value = 'Delete';
+
+      const editBtn = document.createElement('input');
+      editBtn.type = 'button';
+      editBtn.className = 'btn btn-edit';
+      editBtn.value = 'Edit';
 
       newBookDiv.appendChild(coverPicture);
       newBookDiv.appendChild(title);
       newBookDiv.appendChild(language);
       newBookDiv.appendChild(author);
-      newBookDiv.appendChild(checkPageBtn);
+      newBookDiv.appendChild(buttonsDiv);
 
       booksList.appendChild(newBookDiv);
+      buttonsDiv.appendChild(deleteBtn);
+      buttonsDiv.appendChild(editBtn);
     });
 };
 

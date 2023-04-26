@@ -192,6 +192,13 @@ img {
   /* justify-content: space-around; */
   gap: 0.5rem;
   color: var(--color-white);
+  min-width: 20rem;
+}
+
+#add-book-form div {
+  display: grid;
+  grid-template-columns: 35% 65%;
+  /* row-gap: 1rem; */
 }
 
 label {
