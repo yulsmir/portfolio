@@ -1,19 +1,5 @@
 'use strict';
 
-// const project1 = document.querySelector('.project-1');
-// const container = document.querySelector('.container');
-
-// const displayProject1 = () => {
-//   const xhr = new XMLHttpRequest();
-//   xhr.open('GET', './projects/project-01.html');
-//   xhr.onload = function () {
-//     container.innerHTML = xhr.response;
-//   };
-//   xhr.send();
-// };
-
-// project1.addEventListener('click', displayProject1);
-
 // Hide/unhide corresponding section
 const navLinks = document.querySelectorAll('#menu a');
 
@@ -44,24 +30,6 @@ navLinks.forEach((link) => {
 });
 
 // Get all books
-// fetch('http://my-json-server.typicode.com/yulsmir/test-server/books')
-//   .then((response) => response.json())
-//   .then((books) => {
-//     displayBooks(books);
-//     // Do something with the data, like display it on your page
-//     console.log(data);
-//   })
-//   .catch((error) => {
-//     console.error('Error:', error);
-//   });
-
-// // // Create a new book
-// const newBook = {
-//   title: 'New Book Title',
-//   author: 'New Book Author',
-//   language: 'New Language',
-// };
-
 fetch('http://my-json-server.typicode.com/yulsmir/test-server/books')
   .then((response) => response.json())
   .then((books) => {
@@ -70,12 +38,12 @@ fetch('http://my-json-server.typicode.com/yulsmir/test-server/books')
       const bookDiv = document.createElement('div');
       bookDiv.className = 'book';
 
-      // const coverPicture = document.createElement('picture');
-      // coverPicture.className = 'cover';
+      const coverPicture = document.createElement('picture');
+      coverPicture.className = 'cover';
 
-      // const coverImage = document.createElement('img');
-      // coverImage.src = book.cover;
-      // coverPicture.appendChild(coverImage);
+      const coverImage = document.createElement('img');
+      coverImage.src = book.cover;
+      coverPicture.appendChild(coverImage);
 
       const title = document.createElement('p');
       title.textContent = `Title: ${book.title}`;
@@ -91,7 +59,7 @@ fetch('http://my-json-server.typicode.com/yulsmir/test-server/books')
       checkPageBtn.className = 'btn btn-round';
       checkPageBtn.value = 'Check page';
 
-      // bookDiv.appendChild(coverPicture);
+      bookDiv.appendChild(coverPicture);
       bookDiv.appendChild(title);
       bookDiv.appendChild(language);
       bookDiv.appendChild(author);
@@ -100,6 +68,13 @@ fetch('http://my-json-server.typicode.com/yulsmir/test-server/books')
       booksContainer.appendChild(bookDiv);
     });
   });
+
+// Create a new book
+// const newBook = {
+//   title: 'New Book Title',
+//   author: 'New Book Author',
+//   language: 'New Language',
+// };
 
 // // Function to add a new book to the server and update the book list
 // const bookList = document.querySelector('.book-list');
