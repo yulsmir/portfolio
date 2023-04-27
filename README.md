@@ -1,3 +1,3 @@
 ### My Portfolio project
 
-Live: https://github.com/yulsmir/portfolio/tree/master
+Live: https://yulsmir.github.io/portfolio
