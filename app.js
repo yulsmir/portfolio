@@ -105,11 +105,12 @@ const createBook = (book) => {
 
 // READ data - GET request
 Object.keys(params).forEach((key) => url.searchParams.append(key, encodeURIComponent(params[key])));
+
 const getData = fetch(url)
   .then((r) => r.json())
-  .then((result) => {
+  .then((response) => {
     const booksContainer = document.querySelector('.book-list');
-    result.results.forEach((book) => {
+    response.results.forEach((book) => {
       // console.log(book);
       const bookDiv = createBook(book);
       booksContainer.appendChild(bookDiv);
@@ -142,11 +143,11 @@ const addBookFromForm = (e) => {
     }),
   })
     .then((r) => r.json())
-    .then((result) => {
-      console.log(result);
+    .then((response) => {
+      console.log(response);
       // console.log(json);
       const booksList = document.querySelector('.book-list');
-      const newBook = createBook(result);
+      const newBook = createBook(response);
       booksList.appendChild(newBook);
     });
 };
