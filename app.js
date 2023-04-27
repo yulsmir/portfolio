@@ -57,20 +57,6 @@ const createButtons = () => {
   return buttonsDiv;
 };
 
-// READ data - GET request
-Object.keys(params).forEach((key) => url.searchParams.append(key, encodeURIComponent(params[key])));
-
-const getData = fetch(url)
-  .then((r) => r.json())
-  .then((result) => {
-    const booksContainer = document.querySelector('.book-list');
-    result.results.forEach((book) => {
-      // console.log(book);
-      const bookDiv = createBook(book);
-      booksContainer.appendChild(bookDiv);
-    });
-  });
-
 const createBook = (book) => {
   const bookDiv = document.createElement('div');
   bookDiv.className = 'book';
@@ -116,6 +102,19 @@ const createBook = (book) => {
 
   return bookDiv;
 };
+
+// READ data - GET request
+Object.keys(params).forEach((key) => url.searchParams.append(key, encodeURIComponent(params[key])));
+const getData = fetch(url)
+  .then((r) => r.json())
+  .then((result) => {
+    const booksContainer = document.querySelector('.book-list');
+    result.results.forEach((book) => {
+      // console.log(book);
+      const bookDiv = createBook(book);
+      booksContainer.appendChild(bookDiv);
+    });
+  });
 
 const form = document.getElementById('add-book-form');
 
