@@ -46,6 +46,11 @@ const createButtons = () => {
   deleteBtn.className = 'btn btn-delete';
   deleteBtn.value = 'Delete';
 
+  deleteBtn.addEventListener('click', (e) => {
+    const selectedBookId = e.target.closest('.book').id;
+    deleteBook(selectedBookId);
+  });
+
   const editBtn = document.createElement('input');
   editBtn.type = 'button';
   editBtn.className = 'btn btn-edit';
@@ -91,13 +96,14 @@ const createBook = (book) => {
 // READ data - GET request
 Object.keys(params).forEach((key) => url.searchParams.append(key, encodeURIComponent(params[key])));
 
-const getData = fetch(url)
-  .then((r) => r.json())
+fetch(url)
+  .then((response) => response.json())
   .then((response) => {
     const booksContainer = document.querySelector('.book-list');
     response.results.forEach((book) => {
       // console.log(book);
       const bookDiv = createBook(book);
+      bookDiv.id = book.rowIndex;
       booksContainer.appendChild(bookDiv);
     });
   });
