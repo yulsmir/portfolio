@@ -57,6 +57,20 @@ const createButtons = () => {
   return buttonsDiv;
 };
 
+// READ data - GET request
+Object.keys(params).forEach((key) => url.searchParams.append(key, encodeURIComponent(params[key])));
+
+const getData = fetch(url)
+  .then((r) => r.json())
+  .then((result) => {
+    const booksContainer = document.querySelector('.book-list');
+    result.results.forEach((book) => {
+      // console.log(book);
+      const bookDiv = createBook(book);
+      booksContainer.appendChild(bookDiv);
+    });
+  });
+
 const createBook = (book) => {
   const bookDiv = document.createElement('div');
   bookDiv.className = 'book';
@@ -103,19 +117,6 @@ const createBook = (book) => {
   return bookDiv;
 };
 
-// READ data - GET request
-Object.keys(params).forEach((key) => url.searchParams.append(key, encodeURIComponent(params[key])));
-const getData = fetch(url)
-  .then((r) => r.json())
-  .then((result) => {
-    const booksContainer = document.querySelector('.book-list');
-    result.results.forEach((book) => {
-      // console.log(book);
-      const bookDiv = createBook(book);
-      booksContainer.appendChild(bookDiv);
-    });
-  });
-
 const form = document.getElementById('add-book-form');
 
 // Create data - POST request
@@ -154,6 +155,7 @@ const addBookFromForm = (e) => {
 form.addEventListener('submit', addBookFromForm);
 
 // Update data - PUT request
+
 // fetch(`https://api.sheetson.com/v2/sheets/${TAB_NAME}/5`, {
 //   method: 'PUT',
 //   headers: {
@@ -167,6 +169,12 @@ form.addEventListener('submit', addBookFromForm);
 //   .then((result) => console.log(result));
 
 // Delete data - DELETE request
+const deleteBtn = document.querySelector('.btn-delete');
+const deleteBook = (e) => {
+  console.log(e.target);
+};
+
+deleteBtn.addEventListener('click', deleteBook);
 // const idToDelete = 11;
 // fetch(`https://api.sheetson.com/v2/sheets/${TAB_NAME}/${idToDelete}`, {
 //   method: 'DELETE',
