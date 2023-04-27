@@ -77,28 +77,13 @@ const createBook = (book) => {
   const author = document.createElement('p');
   author.textContent = `Author: ${book.author}`;
 
-  const buttonsDiv = document.createElement('div');
-  buttonsDiv.className = 'buttons';
-
-  const deleteBtn = document.createElement('input');
-  deleteBtn.type = 'button';
-  deleteBtn.className = 'btn btn-delete';
-  deleteBtn.value = 'Delete';
-
-  const editBtn = document.createElement('input');
-  editBtn.type = 'button';
-  editBtn.className = 'btn btn-edit';
-  editBtn.value = 'Edit';
+  const buttonsDiv = createButtons();
 
   bookDiv.appendChild(coverPicture);
   bookDiv.appendChild(title);
   bookDiv.appendChild(language);
   bookDiv.appendChild(author);
-
   bookDiv.appendChild(buttonsDiv);
-
-  buttonsDiv.appendChild(deleteBtn);
-  buttonsDiv.appendChild(editBtn);
 
   return bookDiv;
 };
@@ -169,22 +154,23 @@ form.addEventListener('submit', addBookFromForm);
 //   .then((result) => console.log(result));
 
 // Delete data - DELETE request
-const deleteBtn = document.querySelector('.btn-delete');
-const deleteBook = (e) => {
-  console.log(e.target);
-};
+// const deleteBtn = document.querySelector('.btn-delete');
+// const deleteBook = (e) => {
+//   console.log(e.target);
+// };
 
-deleteBtn.addEventListener('click', deleteBook);
-// const idToDelete = 11;
-// fetch(`https://api.sheetson.com/v2/sheets/${TAB_NAME}/${idToDelete}`, {
-//   method: 'DELETE',
-//   headers: {
-//     Authorization: `Bearer ${API_KEY}`,
-//     'X-Spreadsheet-Id': SPREADSHEET_ID,
-//   },
-// })
-//   .then((r) => {
-//     console.log(r);
-//     r.json();
-//   })
-//   .then((result) => console.log(result));
+// deleteBtn.addEventListener('click', deleteBook);
+const deleteBook = (bookId) => {
+  fetch(`https://api.sheetson.com/v2/sheets/${TAB_NAME}/${bookId}`, {
+    method: 'DELETE',
+    headers: {
+      Authorization: `Bearer ${API_KEY}`,
+      'X-Spreadsheet-Id': SPREADSHEET_ID,
+    },
+  })
+    .then((r) => {
+      console.log(r);
+      r.json();
+    })
+    .then((result) => console.log(result));
+};
