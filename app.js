@@ -5,6 +5,11 @@ const SPREADSHEET_ID = '1lRgXZU2qt09r5sfQUSZUIR4OP5OkVIi5BOxWtPysfRA';
 const TAB_NAME = 'BookItems';
 const url = new URL(`https://api.sheetson.com/v2/sheets/${TAB_NAME}`);
 
+const params = {
+  apiKey: API_KEY,
+  spreadsheetId: SPREADSHEET_ID,
+};
+
 // Hide/unhide corresponding section depending on current nav item
 const navLinks = document.querySelectorAll('#menu a');
 
@@ -21,6 +26,9 @@ const handleNavClick = (link) => {
     });
 
     section.classList.remove('hidden');
+
+    const url = `${window.location.protocol}//${window.location.host}${window.location.pathname}${sectionId}`;
+    history.pushState({}, null, url);
   }
 };
 
@@ -30,12 +38,6 @@ navLinks.forEach((link) => {
     handleNavClick(link);
   });
 });
-
-// Get all books
-const params = {
-  apiKey: API_KEY,
-  spreadsheetId: SPREADSHEET_ID,
-};
 
 const createButtons = () => {
   const buttonsDiv = document.createElement('div');
@@ -163,10 +165,6 @@ form.addEventListener('submit', addBookFromForm);
 //   .then((result) => console.log(result));
 
 // Delete data - DELETE request
-// const deleteBtn = document.querySelector('.btn-delete');
-// const deleteBook = (e) => {
-//   console.log(e.target);
-// };
 
 // deleteBtn.addEventListener('click', deleteBook);
 const deleteBook = (bookId) => {

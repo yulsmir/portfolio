@@ -65,7 +65,8 @@ li {
 }
 
 picture {
-  padding-top: 2rem;
+  margin-top: 2rem;
+  background-color: var(--color-grey);
   width: auto;
   height: 16rem;
 }
@@ -249,9 +250,7 @@ i:hover {
 
 /* ------------------------------------- MEDIUM SIZE SCREENS ------------------------------------- */
 @media (min-width: 640px) {
-  /* .book  {
-    flex: 0.3;
-  } */
+
 }
 
 /* ------------------------------------- LARGE SIZE SCREENS ------------------------------------- */
