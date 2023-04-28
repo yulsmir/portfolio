@@ -49,8 +49,9 @@ const createButtons = () => {
   deleteBtn.value = 'Delete';
 
   deleteBtn.addEventListener('click', (e) => {
-    const selectedBookId = e.target.closest('.book').id;
-    deleteBook(selectedBookId);
+    const selectedBook = e.target.closest('.book');
+    deleteBook(selectedBook.id);
+    selectedBook.remove();
   });
 
   const editBtn = document.createElement('input');
