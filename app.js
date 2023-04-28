@@ -72,6 +72,7 @@ const createBook = (book) => {
   const coverImage = document.createElement('img');
   coverImage.src = book.cover;
   coverPicture.appendChild(coverImage);
+  coverImage.alt = book.title + '.img';
 
   const title = document.createElement('p');
   title.textContent = `Title: ${book.title}`;
@@ -96,17 +97,19 @@ const createBook = (book) => {
 // READ data - GET request
 Object.keys(params).forEach((key) => url.searchParams.append(key, encodeURIComponent(params[key])));
 
-fetch(url)
-  .then((response) => response.json())
-  .then((response) => {
-    const booksContainer = document.querySelector('.book-list');
-    response.results.forEach((book) => {
-      // console.log(book);
-      const bookDiv = createBook(book);
-      bookDiv.id = book.rowIndex;
-      booksContainer.appendChild(bookDiv);
+const fetchData = () => {
+  fetch(url)
+    .then((response) => response.json())
+    .then((response) => {
+      const booksContainer = document.querySelector('.book-list');
+      response.results.forEach((book) => {
+        // console.log(book);
+        const bookDiv = createBook(book);
+        bookDiv.id = book.rowIndex;
+        booksContainer.appendChild(bookDiv);
+      });
     });
-  });
+};
 
 const form = document.getElementById('add-book-form');
 
@@ -180,3 +183,5 @@ const deleteBook = (bookId) => {
     })
     .then((result) => console.log(result));
 };
+
+fetchData();
