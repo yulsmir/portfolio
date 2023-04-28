@@ -61,13 +61,13 @@ ul {
 }
 
 li {
-  margin-left: .375rem;
+  margin-left: 0.375rem;
 }
 
 picture {
   margin-top: 2rem;
   width: auto;
-  height: 16rem;
+  height: 14rem;
 }
 
 img {
@@ -148,7 +148,7 @@ img {
   padding-top: 8rem;
 }
 
-#app h2{
+#app h2 {
   color: var(--color-white);
 }
 
@@ -163,16 +163,15 @@ img {
   padding: 5rem 0;
 }
 
-#home .content{
+#home .content {
   height: 100vh;
 }
 
-.book  {
+.book {
   display: flex;
   flex: 1;
   flex-direction: column;
   min-width: 12.5rem;
-  min-height: 15rem;
   max-width: 20rem;
   align-items: center;
   align-content: center;
@@ -209,11 +208,11 @@ img {
 }
 
 .btn-delete {
-  background-color: #C63539;
+  background-color: #c63539;
 }
 
 .btn-edit {
-  background-color: #303C30;
+  background-color: #303c30;
 }
 
 /*--- Hover ---*/
@@ -242,12 +241,10 @@ i:hover {
 
 /* ------------------------------------- MEDIUM SIZE SCREENS ------------------------------------- */
 @media (min-width: 640px) {
-
 }
 
 /* ------------------------------------- LARGE SIZE SCREENS ------------------------------------- */
 @media (min-width: 1024px) {
-  
 }
 
 /* ------------------------------------- EXTRA LARGE SIZE SCREENS ------------------------------------- */

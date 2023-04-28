@@ -166,8 +166,6 @@ form.addEventListener('submit', addBookFromForm);
 //   .then((result) => console.log(result));
 
 // Delete data - DELETE request
-
-// deleteBtn.addEventListener('click', deleteBook);
 const deleteBook = (bookId) => {
   fetch(`https://api.sheetson.com/v2/sheets/${TAB_NAME}/${bookId}`, {
     method: 'DELETE',
