@@ -66,7 +66,6 @@ li {
 
 picture {
   margin-top: 2rem;
-  background-color: var(--color-grey);
   width: auto;
   height: 16rem;
 }
@@ -190,7 +189,6 @@ img {
 #add-book-form {
   display: flex;
   flex-flow: column;
-  /* justify-content: space-around; */
   gap: 0.5rem;
   color: var(--color-white);
   min-width: 20rem;
@@ -208,12 +206,6 @@ img {
   color: var(--color-white);
   /* margin-bottom: 2rem; */
   width: 5rem;
-}
-
-/* TODO: For admin users */
-.buttons {
-  /* display: none; */
-  /* display: flex; */
 }
 
 .btn-delete {
