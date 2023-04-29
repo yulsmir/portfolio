@@ -174,7 +174,7 @@ const deleteBook = (bookId) => {
   });
 };
 
-// TODO: Add edit book funcitonality - PUT request
+// TODO: Add edit book functionality - PUT request
 
 // ------- Handlers and event listeners ------- //
 form.addEventListener('submit', addBookFromForm);
