@@ -13,8 +13,7 @@ const params = {
 // Hide/unhide corresponding section depending on current nav item
 const navLinks = document.querySelectorAll('#menu a');
 
-const handleNavClick = (link) => {
-  const sectionId = link.getAttribute('href');
+const showSection = (sectionId) => {
   const section = document.querySelector(sectionId);
   if (section) {
     const sections = document.querySelectorAll('main section');
@@ -32,6 +31,11 @@ const handleNavClick = (link) => {
   }
 };
 
+const handleNavClick = (link) => {
+  const sectionId = link.getAttribute('href');
+  showSection(sectionId);
+};
+
 navLinks.forEach((link) => {
   link.addEventListener('click', (event) => {
     event.preventDefault();
@@ -47,6 +51,18 @@ const createButtons = () => {
   deleteBtn.type = 'button';
   deleteBtn.className = 'btn btn-delete';
   deleteBtn.value = 'Delete';
+
+  const adminCheckbox = document.getElementById('admin');
+
+  adminCheckbox.addEventListener('change', () => {
+    if (adminCheckbox.checked) {
+      editBtn.style.display = 'inline-block';
+      deleteBtn.style.display = 'inline-block';
+    } else {
+      editBtn.style.display = 'none';
+      deleteBtn.style.display = 'none';
+    }
+  });
 
   deleteBtn.addEventListener('click', (e) => {
     const selectedBook = e.target.closest('.book');
@@ -100,19 +116,22 @@ const createBook = (book) => {
 // READ data - GET request
 Object.keys(params).forEach((key) => url.searchParams.append(key, encodeURIComponent(params[key])));
 
-const fetchData = () => {
-  fetch(url)
-    .then((response) => response.json())
-    .then((response) => {
-      const booksContainer = document.querySelector('.book-list');
-      response.results.forEach((book) => {
-        // console.log(book);
+async function fetchData() {
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+    const booksContainer = document.querySelector('.book-list');
+    await Promise.all(
+      data.results.map(async (book) => {
         const bookDiv = createBook(book);
         bookDiv.id = book.rowIndex;
         booksContainer.appendChild(bookDiv);
-      });
-    });
-};
+      }),
+    );
+  } catch (error) {
+    console.error(error);
+  }
+}
 
 const form = document.getElementById('add-book-form');
 
@@ -132,6 +151,7 @@ const addBookFromForm = (e) => {
       'X-Spreadsheet-Id': SPREADSHEET_ID,
       'Content-Type': 'application/json',
     },
+
     body: JSON.stringify({
       title: titleInput.value,
       language: languageInput.value,

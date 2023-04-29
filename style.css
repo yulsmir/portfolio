@@ -35,6 +35,7 @@ body {
   font-family: var(--default-text);
   line-height: 1.5;
   background-color: var(--color-black);
+  text-align: center;
 }
 
 .content {
@@ -203,7 +204,6 @@ img {
   padding: 0.5rem 1rem;
   border: 0.0625rem solid var(--border-color);
   color: var(--color-white);
-  /* margin-bottom: 2rem; */
   width: 5rem;
 }
 
