@@ -43,6 +43,7 @@ const handleNavClick = (link) => {
   showSection(sectionId);
 };
 
+// Manage book list displaying on a page
 const createButtons = () => {
   const buttonsDiv = document.createElement('div');
   buttonsDiv.className = 'buttons';
