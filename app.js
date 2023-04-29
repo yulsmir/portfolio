@@ -1,19 +1,22 @@
 'use strict';
 
 // ------- Variables declaration ------- //
+// API variables
 const API_KEY = 'zcuImMdmPyoxPNSDNOMtKGgqgMLgsiOcDDI07ZF6vM8Fhr4yPzPXoXyWYQ8';
 const SPREADSHEET_ID = '1lRgXZU2qt09r5sfQUSZUIR4OP5OkVIi5BOxWtPysfRA';
 const TAB_NAME = 'BookItems';
-const url = new URL(`https://api.sheetson.com/v2/sheets/${TAB_NAME}`);
-const form = document.getElementById('add-book-form');
-const navLinks = document.querySelectorAll('#menu a');
-const adminCheckbox = document.getElementById('admin');
-const bookForm = document.getElementById('add-book-form');
 
 const params = {
   apiKey: API_KEY,
   spreadsheetId: SPREADSHEET_ID,
 };
+
+// Project variables
+const url = new URL(`https://api.sheetson.com/v2/sheets/${TAB_NAME}`);
+const form = document.getElementById('add-book-form');
+const navLinks = document.querySelectorAll('#menu a');
+const adminCheckbox = document.getElementById('admin');
+const bookForm = document.getElementById('add-book-form');
 
 // ------- Functions ------- //
 // Hide/unhide corresponding section depending on current nav item
