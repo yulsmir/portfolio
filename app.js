@@ -1,18 +1,22 @@
 'use strict';
 
+// ------- Variables declaration ------- //
 const API_KEY = 'zcuImMdmPyoxPNSDNOMtKGgqgMLgsiOcDDI07ZF6vM8Fhr4yPzPXoXyWYQ8';
 const SPREADSHEET_ID = '1lRgXZU2qt09r5sfQUSZUIR4OP5OkVIi5BOxWtPysfRA';
 const TAB_NAME = 'BookItems';
 const url = new URL(`https://api.sheetson.com/v2/sheets/${TAB_NAME}`);
+const form = document.getElementById('add-book-form');
+const navLinks = document.querySelectorAll('#menu a');
+const adminCheckbox = document.getElementById('admin');
+const bookForm = document.getElementById('add-book-form');
 
 const params = {
   apiKey: API_KEY,
   spreadsheetId: SPREADSHEET_ID,
 };
 
+// ------- Functions ------- //
 // Hide/unhide corresponding section depending on current nav item
-const navLinks = document.querySelectorAll('#menu a');
-
 const showSection = (sectionId) => {
   const section = document.querySelector(sectionId);
   if (section) {
@@ -36,13 +40,6 @@ const handleNavClick = (link) => {
   showSection(sectionId);
 };
 
-navLinks.forEach((link) => {
-  link.addEventListener('click', (event) => {
-    event.preventDefault();
-    handleNavClick(link);
-  });
-});
-
 const createButtons = () => {
   const buttonsDiv = document.createElement('div');
   buttonsDiv.className = 'buttons';
@@ -52,15 +49,16 @@ const createButtons = () => {
   deleteBtn.className = 'btn btn-delete';
   deleteBtn.value = 'Delete';
 
-  const adminCheckbox = document.getElementById('admin');
-
+  // Manage buttons visibility with admin checkbox
   adminCheckbox.addEventListener('change', () => {
     if (adminCheckbox.checked) {
       editBtn.style.display = 'inline-block';
       deleteBtn.style.display = 'inline-block';
+      bookForm.style.display = 'flex';
     } else {
       editBtn.style.display = 'none';
       deleteBtn.style.display = 'none';
+      bookForm.style.display = 'none';
     }
   });
 
@@ -74,9 +72,9 @@ const createButtons = () => {
   editBtn.type = 'button';
   editBtn.className = 'btn btn-edit';
   editBtn.value = 'Edit';
+  buttonsDiv.appendChild(editBtn);
 
   buttonsDiv.appendChild(deleteBtn);
-  buttonsDiv.appendChild(editBtn);
 
   return buttonsDiv;
 };
@@ -133,8 +131,6 @@ async function fetchData() {
   }
 }
 
-const form = document.getElementById('add-book-form');
-
 // Create data - POST request
 const addBookFromForm = (e) => {
   e.preventDefault();
@@ -169,22 +165,6 @@ const addBookFromForm = (e) => {
     });
 };
 
-form.addEventListener('submit', addBookFromForm);
-
-// Update data - PUT request
-
-// fetch(`https://api.sheetson.com/v2/sheets/${TAB_NAME}/5`, {
-//   method: 'PUT',
-//   headers: {
-//     Authorization: `Bearer ${API_KEY}`,
-//     'X-Spreadsheet-Id': SPREADSHEET_ID,
-//     'Content-Type': 'application/json',
-//   },
-//   body: JSON.stringify({ description: 'ololo' }),
-// })
-//   .then((r) => r.json())
-//   .then((result) => console.log(result));
-
 // Delete data - DELETE request
 const deleteBook = (bookId) => {
   fetch(`https://api.sheetson.com/v2/sheets/${TAB_NAME}/${bookId}`, {
@@ -201,4 +181,28 @@ const deleteBook = (bookId) => {
     .then((result) => console.log(result));
 };
 
+// Update data - PUT request
+// fetch(`https://api.sheetson.com/v2/sheets/${TAB_NAME}/5`, {
+//   method: 'PUT',
+//   headers: {
+//     Authorization: `Bearer ${API_KEY}`,
+//     'X-Spreadsheet-Id': SPREADSHEET_ID,
+//     'Content-Type': 'application/json',
+//   },
+//   body: JSON.stringify({ description: 'ololo' }),
+// })
+//   .then((r) => r.json())
+//   .then((result) => console.log(result));
+
+// ------- Handlers and event listeners ------- //
+form.addEventListener('submit', addBookFromForm);
+
+navLinks.forEach((link) => {
+  link.addEventListener('click', (event) => {
+    event.preventDefault();
+    handleNavClick(link);
+  });
+});
+
+// ------- Functions call ------- //
 fetchData();
