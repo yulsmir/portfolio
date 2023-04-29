@@ -24,6 +24,7 @@ const showSection = (sectionId) => {
   const section = document.querySelector(sectionId);
   if (section) {
     const sections = document.querySelectorAll('main section');
+    const url = `${window.location.protocol}//${window.location.host}${window.location.pathname}${sectionId}`;
 
     sections.forEach((s) => {
       if (s !== section) {
@@ -33,7 +34,6 @@ const showSection = (sectionId) => {
 
     section.classList.remove('hidden');
 
-    const url = `${window.location.protocol}//${window.location.host}${window.location.pathname}${sectionId}`;
     history.pushState({}, null, url);
   }
 };
