@@ -52,13 +52,6 @@ const createButtons = () => {
   deleteBtn.className = 'btn btn-delete';
   deleteBtn.value = 'Delete';
 
-  // TODO: Uncomment when PUT method is implemented
-  // const editBtn = document.createElement('input');
-  // editBtn.type = 'button';
-  // editBtn.className = 'btn btn-edit';
-  // editBtn.value = 'Edit';
-  // buttonsDiv.appendChild(editBtn);
-
   deleteBtn.addEventListener('click', (e) => {
     const selectedBook = e.target.closest('.book');
     deleteBook(selectedBook.id);
@@ -180,18 +173,7 @@ const deleteBook = (bookId) => {
   });
 };
 
-// TODO: Update data - PUT request
-// fetch(`https://api.sheetson.com/v2/sheets/${TAB_NAME}/5`, {
-//   method: 'PUT',
-//   headers: {
-//     Authorization: `Bearer ${API_KEY}`,
-//     'X-Spreadsheet-Id': SPREADSHEET_ID,
-//     'Content-Type': 'application/json',
-//   },
-//   body: JSON.stringify({ description: 'ololo' }),
-// })
-//   .then((r) => r.json())
-//   .then((result) => console.log(result));
+// TODO: Add edit book funcitonality - PUT request
 
 // ------- Handlers and event listeners ------- //
 form.addEventListener('submit', addBookFromForm);
