@@ -49,18 +49,12 @@ const createButtons = () => {
   deleteBtn.className = 'btn btn-delete';
   deleteBtn.value = 'Delete';
 
-  // Manage buttons visibility with admin checkbox
-  adminCheckbox.addEventListener('change', () => {
-    if (adminCheckbox.checked) {
-      editBtn.style.display = 'inline-block';
-      deleteBtn.style.display = 'inline-block';
-      bookForm.style.display = 'flex';
-    } else {
-      editBtn.style.display = 'none';
-      deleteBtn.style.display = 'none';
-      bookForm.style.display = 'none';
-    }
-  });
+  // TODO: Uncomment when PUT method is implemented
+  // const editBtn = document.createElement('input');
+  // editBtn.type = 'button';
+  // editBtn.className = 'btn btn-edit';
+  // editBtn.value = 'Edit';
+  // buttonsDiv.appendChild(editBtn);
 
   deleteBtn.addEventListener('click', (e) => {
     const selectedBook = e.target.closest('.book');
@@ -68,11 +62,18 @@ const createButtons = () => {
     selectedBook.remove();
   });
 
-  const editBtn = document.createElement('input');
-  editBtn.type = 'button';
-  editBtn.className = 'btn btn-edit';
-  editBtn.value = 'Edit';
-  buttonsDiv.appendChild(editBtn);
+  // Manage buttons visibility with admin checkbox
+  adminCheckbox.addEventListener('change', () => {
+    if (adminCheckbox.checked) {
+      // editBtn.style.display = 'inline-block';
+      deleteBtn.style.display = 'inline-block';
+      bookForm.style.display = 'flex';
+    } else {
+      // editBtn.style.display = 'none';
+      deleteBtn.style.display = 'none';
+      bookForm.style.display = 'none';
+    }
+  });
 
   buttonsDiv.appendChild(deleteBtn);
 
@@ -157,8 +158,6 @@ const addBookFromForm = (e) => {
   })
     .then((r) => r.json())
     .then((response) => {
-      console.log(response);
-      // console.log(json);
       const booksList = document.querySelector('.book-list');
       const newBook = createBook(response);
       booksList.appendChild(newBook);
@@ -173,15 +172,12 @@ const deleteBook = (bookId) => {
       Authorization: `Bearer ${API_KEY}`,
       'X-Spreadsheet-Id': SPREADSHEET_ID,
     },
-  })
-    .then((r) => {
-      console.log(r);
-      r.json();
-    })
-    .then((result) => console.log(result));
+  }).then((response) => {
+    response.json();
+  });
 };
 
-// Update data - PUT request
+// TODO: Update data - PUT request
 // fetch(`https://api.sheetson.com/v2/sheets/${TAB_NAME}/5`, {
 //   method: 'PUT',
 //   headers: {
