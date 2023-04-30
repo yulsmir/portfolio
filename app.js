@@ -125,7 +125,7 @@ const fetchData = async () => {
       }),
     );
   } catch (error) {
-    console.error(error);
+    console.error(`Get request error: ${error.message}`);
   }
 };
 
@@ -163,7 +163,7 @@ const addBookFromForm = async (e) => {
     bookDiv.id = book.rowIndex;
     booksContainer.appendChild(bookDiv);
   } catch (error) {
-    console.error(error);
+    console.error(`Book creation error: ${error.message}`);
   }
 };
 
@@ -179,7 +179,7 @@ const deleteBook = async (bookId) => {
     });
     await response.json();
   } catch (error) {
-    console.error(error);
+    console.error(`Book deletion error: ${error.message}`);
   }
 };
 
