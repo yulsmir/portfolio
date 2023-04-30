@@ -112,7 +112,7 @@ const createBook = (book) => {
 // READ data - GET request
 Object.keys(params).forEach((key) => url.searchParams.append(key, encodeURIComponent(params[key])));
 
-async function fetchData() {
+const fetchData = async () => {
   try {
     const response = await fetch(url);
     const data = await response.json();
@@ -127,10 +127,10 @@ async function fetchData() {
   } catch (error) {
     console.error(error);
   }
-}
+};
 
 // Create data - POST request
-async function addBookFromForm(e) {
+const addBookFromForm = async (e) => {
   e.preventDefault();
 
   const titleInput = document.getElementById('title-input');
@@ -163,10 +163,10 @@ async function addBookFromForm(e) {
   } catch (error) {
     console.error(error);
   }
-}
+};
 
 // Delete data - DELETE request
-async function deleteBook(bookId) {
+const deleteBook = async (bookId) => {
   try {
     const response = await fetch(`https://api.sheetson.com/v2/sheets/${TAB_NAME}/${bookId}`, {
       method: 'DELETE',
@@ -179,7 +179,7 @@ async function deleteBook(bookId) {
   } catch (error) {
     console.error(error);
   }
-}
+};
 
 // TODO: Add edit book functionality - PUT request
 
