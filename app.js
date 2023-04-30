@@ -155,9 +155,11 @@ const addBookFromForm = async (e) => {
       },
       body: JSON.stringify(requestBody),
     });
+
     const book = await response.json();
     const booksContainer = document.querySelector('.book-list');
     const bookDiv = createBook(book);
+
     bookDiv.id = book.rowIndex;
     booksContainer.appendChild(bookDiv);
   } catch (error) {
