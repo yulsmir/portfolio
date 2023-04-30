@@ -130,7 +130,7 @@ async function fetchData() {
 }
 
 // Create data - POST request
-const addBookFromForm = (e) => {
+async function addBookFromForm(e) {
   e.preventDefault();
 
   const titleInput = document.getElementById('title-input');
@@ -138,41 +138,48 @@ const addBookFromForm = (e) => {
   const languageInput = document.getElementById('language-input');
   const coverInput = document.getElementById('cover-input');
 
-  fetch(url, {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${API_KEY}`,
-      'X-Spreadsheet-Id': SPREADSHEET_ID,
-      'Content-Type': 'application/json',
-    },
+  const requestBody = {
+    title: titleInput.value,
+    language: languageInput.value,
+    author: authorInput.value,
+    cover: coverInput.value,
+  };
 
-    body: JSON.stringify({
-      title: titleInput.value,
-      language: languageInput.value,
-      author: authorInput.value,
-      cover: coverInput.value,
-    }),
-  })
-    .then((r) => r.json())
-    .then((response) => {
-      const booksList = document.querySelector('.book-list');
-      const newBook = createBook(response);
-      booksList.appendChild(newBook);
+  try {
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${API_KEY}`,
+        'X-Spreadsheet-Id': SPREADSHEET_ID,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(requestBody),
     });
-};
+    const book = await response.json();
+    const booksContainer = document.querySelector('.book-list');
+    const bookDiv = createBook(book);
+    bookDiv.id = book.rowIndex;
+    booksContainer.appendChild(bookDiv);
+  } catch (error) {
+    console.error(error);
+  }
+}
 
 // Delete data - DELETE request
-const deleteBook = (bookId) => {
-  fetch(`https://api.sheetson.com/v2/sheets/${TAB_NAME}/${bookId}`, {
-    method: 'DELETE',
-    headers: {
-      Authorization: `Bearer ${API_KEY}`,
-      'X-Spreadsheet-Id': SPREADSHEET_ID,
-    },
-  }).then((response) => {
-    response.json();
-  });
-};
+async function deleteBook(bookId) {
+  try {
+    const response = await fetch(`https://api.sheetson.com/v2/sheets/${TAB_NAME}/${bookId}`, {
+      method: 'DELETE',
+      headers: {
+        Authorization: `Bearer ${API_KEY}`,
+        'X-Spreadsheet-Id': SPREADSHEET_ID,
+      },
+    });
+    await response.json();
+  } catch (error) {
+    console.error(error);
+  }
+}
 
 // TODO: Add edit book functionality - PUT request
 
